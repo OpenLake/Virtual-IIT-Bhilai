@@ -2,7 +2,8 @@ import './style.css'
 
 import { GridEngine } from 'grid-engine'
 import 'phaser'
-import { GameScene } from './gameScreen'
+import { GameScene } from './screens/gameScreen'
+import { WelcomeScreen } from './screens/welcomeScreen'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
@@ -17,7 +18,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   height: 600,
   parent: "game",
   backgroundColor: "#18216D",
-  scene: [GameScene],
+  scene: [WelcomeScreen,GameScene],
   physics: {
     default: "arcade",
     arcade: {
