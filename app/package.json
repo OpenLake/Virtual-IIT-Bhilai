@@ -8,5 +8,9 @@
   "devDependencies": {
     "typescript": "^4.3.2",
     "vite": "^2.3.7"
+  },
+  "dependencies": {
+    "grid-engine": "^2.2.1",
+    "phaser": "^3.55.2"
   }
 }

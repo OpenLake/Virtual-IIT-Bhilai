@@ -11,7 +11,13 @@
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "typeRoots": [
+      "./node_modules/phaser/types",
+    ],
+    "types": [
+      "Phaser",
+    ]
   },
   "include": ["./src"]
 }
