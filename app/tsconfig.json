@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "moduleResolution": "Node",
     "strict": true,
     "sourceMap": true,
@@ -19,5 +22,7 @@
       "Phaser",
     ]
   },
-  "include": ["./src"]
+  "include": [
+    "./src"
+  ]
 }
