@@ -9,10 +9,10 @@ COVID-19 seperated IIT Bhilai students and now they can't enjoy campus life. We 
 
 ## ✨ Features
 - A virtual world game for students to come together and chit chat.
-- Tech Stack : To be decided.
+- Tech Stack : Phaser.JS, Socket.IO, NodeJS, WebRTC(Or Jitsi)
 
-## Maintainers
-- To be decided
+## Maintainer(s)
+- 👤 [Kumar Shivendu](https://github.com/KShivendu)
 
 ---
 
