@@ -1,0 +1,36 @@
+{
+  "name": "virtual-campus-api",
+  "version": "0.0.1",
+  "description": "API for virtual campus game world",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start": "npm run build && node build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./build && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenLake/Virtual-IIT-Bhilai.git"
+  },
+  "keywords": [
+    "phaser",
+    "game-world",
+    "spacial",
+    "chat",
+    "call",
+    "game"
+  ],
+  "author": "shivendu@iitbhilai.ac.in",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OpenLake/Virtual-IIT-Bhilai/issues"
+  },
+  "homepage": "https://github.com/OpenLake/Virtual-IIT-Bhilai#readme",
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
