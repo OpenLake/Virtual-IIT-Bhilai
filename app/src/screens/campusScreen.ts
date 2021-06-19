@@ -50,13 +50,13 @@ export class CampusScreen extends Phaser.Scene {
     update() {
         const cursors = this.input.keyboard.createCursorKeys();
         if (cursors.left.isDown) {
-            // this.gridEngine.move("player", "left");
+            this.gridEngine.move("player", "left" as any);
         } else if (cursors.right.isDown) {
-            // this.gridEngine.move("player", "right");
+            this.gridEngine.move("player", "right" as any);
         } else if (cursors.up.isDown) {
-            // this.gridEngine.move("player", "up");
+            this.gridEngine.move("player", "up" as any);
         } else if (cursors.down.isDown) {
-            // this.gridEngine.move("player", "down");
+            this.gridEngine.move("player", "down" as any);
         }
     }
 }
