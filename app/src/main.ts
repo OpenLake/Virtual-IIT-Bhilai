@@ -2,8 +2,6 @@ import './style.css'
 
 import { GridEngine } from 'grid-engine'
 import 'phaser'
-import { GameScene } from './screens/gameScreen'
-import { WelcomeScreen } from './screens/welcomeScreen'
 import { CampusScreen } from './screens/campusScreen';
 
 const app = document.querySelector<HTMLDivElement>('#app')!
