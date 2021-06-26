@@ -175,7 +175,7 @@ frame = 1
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "run_right"
-frame = 3
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

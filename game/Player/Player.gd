@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 10
+export var speed = 10  #export function help to change the value directly from the editor
 
 onready var char_sprite = get_node("char_sprite")
 var velocity = Vector2.ZERO
@@ -19,19 +19,25 @@ func set_idle_animation():
 	elif direction.y == -1:
 		char_sprite.animation = "idle_top"
 
+
+#this physics function will be called every frame(in this case every 1/60 seconds)
 func _physics_process(delta):
+	#if user pressed right movement button
 	if Input.is_action_pressed("ui_right"):
-		direction = Vector2(1,0)
-		velocity = direction * speed
+		direction = Vector2(1,0)  #setting the vector direction value
+		velocity = direction * speed  #calculating the valocity
 		char_sprite.animation = "run_right"
+	#if user pressed left movement button
 	elif Input.is_action_pressed("ui_left"):
 		direction = Vector2(-1,0)
 		velocity = direction * speed
 		char_sprite.animation = "run_left";
+	#if user pressed up movement button
 	elif Input.is_action_pressed("ui_up"):
 		direction = Vector2(0,-1)
 		velocity = direction * speed
 		char_sprite.animation = "run_forward";
+	#if user pressed down movement button
 	elif Input.is_action_pressed("ui_down"):
 		direction = Vector2(0,1)
 		velocity = direction * speed
@@ -39,7 +45,8 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 		set_idle_animation()
-		
+	
+	#prebuilt function for moving a object of a kinematic body type	
 	move_and_collide(velocity * delta)
 	
 	pass
