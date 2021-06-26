@@ -3,7 +3,7 @@
 [ext_resource path="res://World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://ignore/assets/street_32_32.png" type="Texture" id=4]
+[ext_resource path="res://assets/street_32_32.png" type="Texture" id=4]
 [ext_resource path="res://animation_files/running_animations/tile000.png" type="Texture" id=5]
 [ext_resource path="res://animation_files/running_animations/tile002.png" type="Texture" id=6]
 [ext_resource path="res://animation_files/running_animations/tile001.png" type="Texture" id=7]
@@ -104,6 +104,16 @@ animations = [ {
 "name": "idle_back",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "run_forward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 43 ), ExtResource( 29 ), ExtResource( 48 ), ExtResource( 45 ), ExtResource( 50 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "idle_top",
@@ -119,11 +129,6 @@ animations = [ {
 "name": "run_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "run_forward",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "run_right",
@@ -132,11 +137,6 @@ animations = [ {
 "frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 47 ), ExtResource( 32 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "idle_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 52 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "idle_right",
 "speed": 5.0
 } ]
 
@@ -175,6 +175,7 @@ frame = 1
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "run_right"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
