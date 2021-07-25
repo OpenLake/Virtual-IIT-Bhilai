@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -52,6 +52,8 @@
 [ext_resource path="res://animation_files/idle/tile010.png" type="Texture" id=50]
 [ext_resource path="res://animation_files/idle/tile022.png" type="Texture" id=51]
 [ext_resource path="res://animation_files/idle/tile000.png" type="Texture" id=52]
+[ext_resource path="res://client.gd" type="Script" id=53]
+[ext_resource path="res://entry_point.gd" type="Script" id=54]
 
 [sub_resource type="TileSet" id=1]
 0/name = "street_32_32.png 0"
@@ -97,33 +99,16 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.913725, 0.0627451, 0.0627451, 1 )
+
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 44 ), ExtResource( 49 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 51 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "idle_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "run_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "run_forward",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 43 ), ExtResource( 29 ), ExtResource( 48 ), ExtResource( 45 ), ExtResource( 50 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "idle_top",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 52 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "idle_right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 36 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 47 ), ExtResource( 32 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "idle_left",
@@ -134,17 +119,51 @@ animations = [ {
 "name": "run_right",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 44 ), ExtResource( 49 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 51 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "idle_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 29 ), ExtResource( 48 ), ExtResource( 45 ), ExtResource( 50 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "idle_top",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "run_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "run_forward",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "run_left",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 22.9249
 height = 36.9366
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.929412, 0.772549, 0.160784, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.992157, 0.054902, 0.0313726, 1 )
+
 [node name="World" type="Node2D"]
+script = ExtResource( 53 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -153,6 +172,14 @@ cell_quadrant_size = 64
 format = 1
 tile_data = PoolIntArray( -851983, 0, 327685, -851982, 0, 131075, -851981, 0, 131075, -851980, 0, 3, -851979, 0, 131075, -851978, 0, 131075, -851977, 0, 327681, -786447, 0, 65542, -786446, 0, 131074, -786445, 0, 131074, -786444, 0, 196611, -786443, 0, 131074, -786442, 0, 131074, -786441, 0, 65542, -720911, 0, 65542, -720910, 0, 131074, -720909, 0, 131074, -720908, 0, 3, -720907, 0, 131074, -720906, 0, 131074, -720905, 0, 65542, -655375, 0, 5, -655374, 0, 131074, -655373, 0, 131074, -655372, 0, 131074, -655371, 0, 131074, -655370, 0, 131074, -655369, 0, 65542, -589839, 0, 5, -589838, 0, 131074, -589837, 0, 131074, -589836, 0, 3, -589835, 0, 131074, -589834, 0, 131074, -589833, 0, 65542, -524303, 0, 5, -524302, 0, 131074, -524301, 0, 131074, -524300, 0, 131074, -524299, 0, 131074, -524298, 0, 131074, -524297, 0, 65542, -458767, 0, 5, -458766, 0, 131074, -458765, 0, 131074, -458764, 0, 3, -458763, 0, 131074, -458762, 0, 131074, -458761, 0, 65542, -393231, 0, 5, -393230, 0, 131074, -393229, 0, 131074, -393228, 0, 131074, -393227, 0, 131074, -393226, 0, 131074, -393225, 0, 65542, -327695, 0, 5, -327694, 0, 131074, -327693, 0, 131074, -327692, 0, 3, -327691, 0, 131074, -327690, 0, 131074, -327689, 0, 65542, -262159, 0, 5, -262158, 0, 131074, -262157, 0, 131074, -262156, 0, 131074, -262155, 0, 131074, -262154, 0, 131074, -262153, 0, 65542, -196623, 0, 5, -196622, 0, 131074, -196621, 0, 131074, -196620, 0, 3, -196619, 0, 131074, -196618, 0, 131074, -196617, 0, 65542, -131087, 0, 5, -131086, 0, 131074, -131085, 0, 131074, -131084, 0, 131074, -131083, 0, 131074, -131082, 0, 131074, -131081, 0, 65542, -65551, 0, 5, -65550, 0, 131074, -65549, 0, 131074, -65548, 0, 3, -65547, 0, 131074, -65546, 0, 131074, -65545, 0, 65542, -15, 0, 5, -14, 0, 131074, -13, 0, 131074, -12, 0, 131074, -11, 0, 131074, -10, 0, 131074, -9, 0, 65542, 65521, 0, 5, 65522, 0, 131074, 65523, 0, 131074, 65524, 0, 3, 65525, 0, 131074, 65526, 0, 131074, 65527, 0, 65542, 131057, 0, 5, 131058, 0, 131074, 131059, 0, 131074, 131060, 0, 131074, 131061, 0, 131074, 131062, 0, 131074, 131063, 0, 65542, 196593, 0, 5, 196594, 0, 131074, 196595, 0, 131074, 196596, 0, 3, 196597, 0, 131074, 196598, 0, 131074, 196599, 0, 65542, 262129, 0, 5, 262130, 0, 131074, 262131, 0, 131074, 262132, 0, 131074, 262133, 0, 131074, 262134, 0, 131074, 262135, 0, 65542, 327665, 0, 5, 327666, 0, 131074, 327667, 0, 131074, 327668, 0, 3, 327669, 0, 131074, 327670, 0, 131074, 327671, 0, 65542, 393201, 0, 5, 393202, 0, 327684, 393203, 0, 327684, 393204, 0, 327684, 393205, 0, 327684, 393206, 0, 327684, 393207, 0, 65541, 393208, 0, 65542, 393209, 0, 65542, 393210, 0, 65542, 393211, 0, 65542, 393212, 0, 65542, 393213, 0, 65542, 393214, 0, 65542, 393215, 0, 65542, 327680, 0, 65542, 327681, 0, 65542, 327682, 0, 65542, 327683, 0, 65542, 327684, 0, 65542, 327685, 0, 65542, 327686, 0, 65542, 327687, 0, 65542, 327688, 0, 65542, 327689, 0, 65542, 327690, 0, 65542, 327691, 0, 65542, 327692, 0, 65542, 327693, 0, 65542, 327694, 0, 65542, 327695, 0, 65542, 327696, 0, 65542, 327697, 0, 65542, 327698, 0, 65542, 327699, 0, 65542, 327700, 0, 65542, 327701, 0, 65542, 327702, 0, 65542, 327703, 0, 65542, 327704, 0, 65542, 458737, 0, 5, 458738, 0, 131074, 458739, 0, 131074, 458740, 0, 131074, 458741, 0, 131074, 458742, 0, 131074, 458743, 0, 196613, 458744, 0, 131075, 458745, 0, 131075, 458746, 0, 131075, 458747, 0, 131075, 458748, 0, 131075, 458749, 0, 131075, 458750, 0, 131074, 458751, 0, 196610, 393216, 0, 131075, 393217, 0, 131075, 393218, 0, 131075, 393219, 0, 131075, 393220, 0, 131075, 393221, 0, 131075, 393222, 0, 131075, 393223, 0, 131075, 393224, 0, 131075, 393225, 0, 131075, 393226, 0, 131075, 393227, 0, 131075, 393228, 0, 131075, 393229, 0, 131075, 393230, 0, 131075, 393231, 0, 131075, 393232, 0, 131075, 393233, 0, 196610, 393234, 0, 131075, 393235, 0, 196610, 393236, 0, 131074, 393237, 0, 131075, 393238, 0, 131075, 393239, 0, 196611, 393240, 0, 196611, 524273, 0, 5, 524274, 0, 131074, 524275, 0, 131074, 524276, 0, 131074, 524277, 0, 131074, 524278, 0, 131074, 524279, 0, 196613, 524280, 0, 131075, 524281, 0, 131075, 524282, 0, 131075, 524283, 0, 131075, 524284, 0, 131075, 524285, 0, 131075, 524286, 0, 131074, 524287, 0, 131074, 458752, 0, 131074, 458753, 0, 131075, 458754, 0, 131075, 458755, 0, 131075, 458756, 0, 131075, 458757, 0, 131075, 458758, 0, 131075, 458759, 0, 131075, 458760, 0, 131075, 458761, 0, 131075, 458762, 0, 131075, 458763, 0, 131075, 458764, 0, 131075, 458765, 0, 131075, 458766, 0, 131075, 458767, 0, 131075, 458768, 0, 131075, 458769, 0, 196610, 458770, 0, 131075, 458771, 0, 196610, 458772, 0, 131074, 458773, 0, 131075, 458774, 0, 131075, 458775, 0, 196611, 458776, 0, 196611, 589809, 0, 5, 589810, 0, 131074, 589811, 0, 131074, 589812, 0, 131074, 589813, 0, 131074, 589814, 0, 131074, 589815, 0, 196613, 589816, 0, 196614, 589817, 0, 131075, 589818, 0, 196614, 589819, 0, 131075, 589820, 0, 196614, 589821, 0, 131075, 589822, 0, 196614, 589823, 0, 196610, 524288, 0, 196614, 524289, 0, 131074, 524290, 0, 196614, 524291, 0, 131074, 524292, 0, 196614, 524293, 0, 131075, 524294, 0, 196614, 524295, 0, 131075, 524296, 0, 196614, 524297, 0, 131075, 524298, 0, 196614, 524299, 0, 131075, 524300, 0, 196614, 524301, 0, 131075, 524302, 0, 196614, 524303, 0, 131075, 524304, 0, 196614, 524305, 0, 196610, 524306, 0, 196614, 524307, 0, 196610, 524308, 0, 196614, 524309, 0, 196611, 524310, 0, 196614, 524311, 0, 196611, 524312, 0, 196614, 655345, 0, 5, 655346, 0, 131074, 655347, 0, 131074, 655348, 0, 131074, 655349, 0, 131074, 655350, 0, 131074, 655351, 0, 196613, 655352, 0, 131075, 655353, 0, 131075, 655354, 0, 131075, 655355, 0, 131075, 655356, 0, 131075, 655357, 0, 131075, 655358, 0, 131074, 655359, 0, 196610, 589824, 0, 131075, 589825, 0, 131075, 589826, 0, 131075, 589827, 0, 131075, 589828, 0, 131075, 589829, 0, 131074, 589830, 0, 131074, 589831, 0, 131074, 589832, 0, 131074, 589833, 0, 131075, 589834, 0, 131075, 589835, 0, 131075, 589836, 0, 131075, 589837, 0, 131075, 589838, 0, 131075, 589839, 0, 131075, 589840, 0, 131075, 589841, 0, 196610, 589842, 0, 131075, 589843, 0, 196610, 589844, 0, 131074, 589845, 0, 131075, 589846, 0, 131075, 589847, 0, 196611, 589848, 0, 196611, 720881, 0, 5, 720882, 0, 131074, 720883, 0, 131074, 720884, 0, 131074, 720885, 0, 131074, 720886, 0, 131074, 720887, 0, 196613, 720888, 0, 131075, 720889, 0, 131075, 720890, 0, 131075, 720891, 0, 131075, 720892, 0, 131075, 720893, 0, 131075, 720894, 0, 131074, 720895, 0, 196610, 655360, 0, 131075, 655361, 0, 131075, 655362, 0, 131075, 655363, 0, 131075, 655364, 0, 131075, 655365, 0, 131075, 655366, 0, 131075, 655367, 0, 131075, 655368, 0, 131075, 655369, 0, 131074, 655370, 0, 131074, 655371, 0, 131074, 655372, 0, 131075, 655373, 0, 131075, 655374, 0, 131075, 655375, 0, 131075, 655376, 0, 131075, 655377, 0, 196610, 655378, 0, 131075, 655379, 0, 196610, 655380, 0, 196611, 655381, 0, 131075, 655382, 0, 131075, 655383, 0, 196611, 655384, 0, 196611, 786417, 0, 65541, 786418, 0, 327684, 786419, 0, 327684, 786420, 0, 327684, 786421, 0, 327684, 786422, 0, 327684, 786423, 0, 327685, 786424, 0, 65542, 786425, 0, 65542, 786426, 0, 65542, 786427, 0, 65542, 786428, 0, 65542, 786429, 0, 65542, 786430, 0, 65542, 786431, 0, 65542, 720896, 0, 65542, 720897, 0, 65542, 720898, 0, 65542, 720899, 0, 65542, 720900, 0, 65542, 720901, 0, 65542, 720902, 0, 65542, 720903, 0, 65542, 720904, 0, 65542, 720905, 0, 65542, 720906, 0, 65542, 720907, 0, 65542, 720908, 0, 65542, 720909, 0, 65542, 720910, 0, 65542, 720911, 0, 65542, 720912, 0, 65542, 720913, 0, 65542, 720914, 0, 65542, 720915, 0, 65542, 720916, 0, 65542, 720917, 0, 65542, 720918, 0, 65542, 720919, 0, 65542, 720920, 0, 65542 )
 
+[node name="spawn area" type="Label" parent="."]
+margin_right = 80.0
+margin_bottom = 80.0
+custom_styles/normal = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Bush" type="Sprite" parent="."]
 visible = false
 position = Vector2( 568.034, 236.452 )
@@ -160,9 +187,9 @@ scale = Vector2( 2.1875, 2.1875 )
 texture = ExtResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 566.745, 285.439 )
+position = Vector2( 40, 40 )
 script = ExtResource( 3 )
-speed = 80
+speed = 100
 
 [node name="Sprite" type="Sprite" parent="Player"]
 visible = false
@@ -173,13 +200,110 @@ frame = 1
 
 [node name="char_sprite" type="AnimatedSprite" parent="Player"]
 scale = Vector2( 3, 3 )
-frames = SubResource( 2 )
-animation = "run_right"
+frames = SubResource( 3 )
+animation = "idle_right"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0.53186, 13.0195 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
+visible = false
+
+[node name="Label" type="Label" parent="Player"]
+margin_left = -41.0
+margin_top = -55.0
+margin_right = 36.0
+margin_bottom = -33.0
+custom_styles/normal = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Abhishek"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry_point" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 598.0
+color = Color( 0.505882, 0.372549, 0.301961, 1 )
+script = ExtResource( 54 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="entry_point"]
+margin_left = 340.0
+margin_top = 120.0
+margin_right = 698.0
+margin_bottom = 430.0
+
+[node name="label" type="Label" parent="entry_point"]
+margin_left = 364.0
+margin_top = 201.0
+margin_right = 508.0
+margin_bottom = 230.0
+text = "Enter your roll number"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roll_enter" type="SpinBox" parent="entry_point"]
+margin_left = 543.0
+margin_top = 201.0
+margin_right = 652.0
+margin_bottom = 237.0
+value = 1.0
+allow_greater = true
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="entry_point"]
+margin_left = 364.0
+margin_top = 151.611
+margin_right = 508.0
+margin_bottom = 180.611
+text = "Enter your name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name_enter" type="LineEdit" parent="entry_point"]
+margin_left = 543.0
+margin_top = 151.611
+margin_right = 652.0
+margin_bottom = 187.611
+text = "Abhishek "
+clear_button_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="done" type="Button" parent="entry_point"]
+margin_left = 390.06
+margin_top = 298.458
+margin_right = 475.06
+margin_bottom = 354.458
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="entry_point"]
+margin_left = 567.277
+margin_top = 298.458
+margin_right = 652.277
+margin_bottom = 354.458
+text = "exit"
+
+[connection signal="pressed" from="entry_point/done" to="entry_point" method="_on_done_pressed"]
+[connection signal="pressed" from="entry_point/exit" to="entry_point" method="_on_exit_pressed"]
