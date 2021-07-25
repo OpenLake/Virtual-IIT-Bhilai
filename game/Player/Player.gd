@@ -1,15 +1,27 @@
 extends KinematicBody2D
 
+export var enemy_mode = false
 export var speed = 10  #export function help to change the value directly from the editor
 
+onready var control = get_parent()
 onready var char_sprite = get_node("char_sprite")
+
 var velocity = Vector2.ZERO
 var direction = Vector2(1,0)
+var moving = false
+
 const ACCELERATION = 300
 const FRICTION = 500
 const MAX_SPEED = 10000
 
+func set_as_enemy(payload):
+	enemy_mode = true
+	position = payload["position"]
+	char_sprite.animation = payload["animation"]
+
+
 func set_idle_animation():
+	print(direction)
 	if direction.x == 1:
 		char_sprite.animation = "idle_right"
 	elif direction.x == -1:
@@ -24,33 +36,53 @@ func set_idle_animation():
 func _physics_process(delta):
 	#if user pressed right movement button
 	if Input.is_action_pressed("ui_right"):
+		control.client.emit_signal("hello")
+		moving = true
 		direction = Vector2(1,0)  #setting the vector direction value
 		velocity = direction * speed  #calculating the valocity
 		char_sprite.animation = "run_right"
+		move_and_collide(velocity * delta)
+		send_move_signal()
 	#if user pressed left movement button
 	elif Input.is_action_pressed("ui_left"):
+		moving = true
 		direction = Vector2(-1,0)
 		velocity = direction * speed
 		char_sprite.animation = "run_left";
+		move_and_collide(velocity * delta)
+		send_move_signal()
 	#if user pressed up movement button
 	elif Input.is_action_pressed("ui_up"):
+		moving = true
 		direction = Vector2(0,-1)
 		velocity = direction * speed
 		char_sprite.animation = "run_forward";
+		move_and_collide(velocity * delta)
+		send_move_signal()
 	#if user pressed down movement button
 	elif Input.is_action_pressed("ui_down"):
+		moving = true
 		direction = Vector2(0,1)
 		velocity = direction * speed
 		char_sprite.animation = "run_back";
+		move_and_collide(velocity * delta)
+		send_move_signal()
+		
 	else:
-		velocity = Vector2.ZERO
-		set_idle_animation()
-	
+		if moving == true:
+			moving = false
+			velocity = Vector2.ZERO
+			set_idle_animation()
+			send_move_signal()
+#		set_idle_animation()
 	#prebuilt function for moving a object of a kinematic body type	
-	move_and_collide(velocity * delta)
+#	move_and_collide(velocity * delta)
 	
-	pass
-	
+func send_move_signal():
+	control.data["x"] = self.position.x
+	control.data["y"] = self.position.y
+	control.data["animation"] = char_sprite.animation
+	get_parent().send({"mes":"move_enemy","info":control.data});	
 	
 	
 #	var input_vector = Vector2.ZERO

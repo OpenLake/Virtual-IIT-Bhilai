@@ -1,0 +1,14 @@
+{
+  "name": "node_godot",
+  "version": "1.0.0",
+  "description": "node server fir game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abhishek",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.5.2"
+  }
+}
